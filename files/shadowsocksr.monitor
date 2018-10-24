@@ -34,14 +34,14 @@ fi
 i=0
 
 GLOBAL_SERVER=$(uci_get_by_type global global_server)
-local server=$(uci_get_by_name $GLOBAL_SERVER server)
-local kcp_port=$(uci_get_by_name $GLOBAL_SERVER kcp_port)
-local server_port=$(uci_get_by_name $GLOBAL_SERVER server_port)
-local password=$(uci_get_by_name $GLOBAL_SERVER kcp_password)
-local kcp_param=$(uci_get_by_name $GLOBAL_SERVER kcp_param)
+server=$(uci_get_by_name $GLOBAL_SERVER server)
+kcp_port=$(uci_get_by_name $GLOBAL_SERVER kcp_port)
+server_port=$(uci_get_by_name $GLOBAL_SERVER server_port)
+password=$(uci_get_by_name $GLOBAL_SERVER kcp_password)
+kcp_param=$(uci_get_by_name $GLOBAL_SERVER kcp_param)
 [ "$password" != "" ] && password="--key "${password}
 
-local sock5_port=$(uci_get_by_type socks5_proxy local_port 1080)
+sock5_port=$(uci_get_by_type socks5_proxy local_port 1080)
 
 if echo $server|grep -E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$">/dev/null; then         
 	server=${server}

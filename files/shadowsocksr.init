@@ -207,7 +207,7 @@ server {
 }
 EOF
 
-	/usr/sbin/pdnsd -c /var/etc/pdnsd.conf -d
+	sudo /usr/sbin/pdnsd -c /var/etc/pdnsd.conf -d
 
 
 
